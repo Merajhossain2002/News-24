@@ -19,13 +19,24 @@ document
   .getElementById("catagories")
   .addEventListener("click", function (event) {
     const getId = event.target.id;
-    const url = fetch(
-      `https://openapi.programming-hero.com/api/news/category/${getId}`
-    )
-      .then((response) => response.json())
-      .then((data) => console.log(data.data));
+
+    function fetchNews(getId) {
+      fetch(`https://openapi.programming-hero.com/api/news/category/${getId}`)
+        .then((response) => response.json())
+        .then((data) => getNews(data.data));
+    }
+    fetchNews(getId);
+
     const getNewsFoundElement = document.getElementById("item-count");
-    
+
+    function getNews(newsData) {
+      if (newsData.length == 0) {
+        getNewsFoundElement.innerText = "No News Founde For This Catagory";
+      } else {
+        const newsLength = newsData.length;
+        getNewsFoundElement.innerText = `${newsLength} News Found For This Catagory`;
+      }
+    }
   });
 
 fetchCatagory();
