@@ -5,6 +5,15 @@ function fetchCatagory() {
     .catch((error) => console.log(error));
 }
 
+const toggleSpinner = (isLoading) => {
+  const spinner = document.getElementById("spinner");
+  if (isLoading === true) {
+    spinner.classList.remove("d-none");
+  } else {
+    spinner.classList.add("d-none");
+  }
+};
+
 const loadCatagory = (catagoryData) => {
   const getCataUl = document.getElementById("catagories");
   catagoryData.forEach((catagory) => {
@@ -19,6 +28,8 @@ const loadCatagory = (catagoryData) => {
 document
   .getElementById("catagories")
   .addEventListener("click", function (event) {
+    toggleSpinner(true);
+
     const getId = event.target.id;
     const newsSection = document.getElementById("news");
     newsSection.innerHTML = "";
@@ -36,6 +47,8 @@ document
     function getNews(newsData) {
       if (newsData.length == 0) {
         getNewsFoundElement.innerText = "No News Founde For This Catagory";
+        newsSection.innerHTML = `
+        <h1 class= "fw-bold" >No News found for this section.</h1>`;
       } else {
         const newsLength = newsData.length;
         getNewsFoundElement.innerText = `${newsLength} News Found For This Catagory`;
@@ -54,6 +67,19 @@ document
             return news.details;
           }
         };
+
+        const dataCheck = (dataPath) => {
+          if (dataPath === null || dataPath === "" || dataPath === "system") {
+            const notFoundMsg = "No data found";
+            return notFoundMsg;
+          } else {
+            return dataPath;
+          }
+        };
+
+        const authorName = dataCheck(news.author.name);
+        const viewData = dataCheck(news.total_view);
+        const dateData = dataCheck(news.author.published_date);
         const newsDtails = details(newsLength);
 
         const div = document.createElement("div");
@@ -89,8 +115,8 @@ document
                     </div>
                     <div class="col-9 col-md-9 ps-2 ps-lg-0">
                       <div style="height: 40px" class="card-body p-0">
-                        <h5 class="card-title fs-6 m-0">${news.author.name}</h5>
-                        <p class="card-title m-0">${news.author.published_date}</p>
+                        <h5 class="card-title fs-6 m-0">${authorName}</h5>
+                        <p class="card-title m-0">${dateData}</p>
                       </div>
                     </div>
                   </div>
@@ -100,7 +126,7 @@ document
                 <!-- view start -->
                 <div class="col col-md-3">
                   <i class="fa-regular fa-eye"></i
-                  ><span id="view" class="fw-semibold"> ${news.total_view}</span>
+                  ><span id="view" class="fw-semibold"> ${viewData}</span>
                 </div>
                 <!-- view end -->
 
@@ -128,7 +154,11 @@ document
       </div>`;
         newsSection.appendChild(div);
       });
+      toggleSpinner(false);
     }
   });
+
+
+
 
 fetchCatagory();
