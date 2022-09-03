@@ -170,7 +170,6 @@ document.getElementById("news").addEventListener("click", function (event) {
   const getId =
     event.target.parentElement.parentElement.parentElement.parentElement
       .parentElement.id;
-  console.log(getId);
 
   function fetchNews(getId) {
     fetch(`https://openapi.programming-hero.com/api/news/${getId}`)
@@ -193,6 +192,15 @@ document.getElementById("news").addEventListener("click", function (event) {
 
     const modalImg = getElm("modal-img");
     modalImg.setAttribute("src", `${newsdata.image_url}`);
+
+    const authorImg = getElm("author-img");
+    authorImg.setAttribute("src", `${newsdata.author.img}`);
+
+    const authorName = getElm("author-name");
+    authorName.innerText = `${newsdata.author.name}`;
+
+    const authorDate = getElm("author-date");
+    authorDate.innerText = `${newsdata.author.published_date}`;
   };
 });
 
