@@ -56,7 +56,7 @@ document
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div style="height: 20rem;" class="card mb-3">
+        <div style="height: 22rem;" class="card mb-3">
         <div class="row g-0">
           <div class="col-md-3 d-flex justify-content-center">
             <img
@@ -68,12 +68,12 @@ document
           <div class="col-md-9">
             <div class="card-body">
               <h5 class="card-title">${news.title}</h5>
-              <p class="card-text">${newsDtails}</p>
+              <p class="d-none d-lg-block card-text">${newsDtails}</p>
               <div
                 class="row align-items-center d-flex flex-column flex-md-row"
               >
                 <!-- author start -->
-                <div class="card col col-md-3 border-0 my-4 my-lg-0">
+                <div class="d-none d-lg-block card col col-md-3 border-0 my-4 my-lg-0">
                   <div class="row g-0 py-1">
                     <div
                       style="height: 40px"
@@ -113,7 +113,7 @@ document
                 <!-- rating end -->
 
                 <!-- arrow button start -->
-                <div class="col col-md-3">
+                <div class="d-none d-lg-block col col-md-3">
                   <button class="btn logo-color">
                     <i class="fa-solid fa-arrow-right"></i>
                   </button>
