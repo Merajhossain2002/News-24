@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f6f7;
+}
+
+.logo-color {
+  color: #5d5fef !important;
+}
+.logo-bg-color {
+  background-color: #5d5fef;
+}
