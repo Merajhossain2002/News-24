@@ -54,7 +54,11 @@ document
         getNewsFoundElement.innerText = `${newsLength} News Found For This Catagory`;
       }
 
-      newsData.forEach((news) => {
+      const mostViewed = newsData.sort(function (a, b) {
+        return b.total_view - a.total_view;
+      });
+
+      mostViewed.forEach((news) => {
         const newsLength = news.details.length;
 
         const details = (lengthOfNews) => {
