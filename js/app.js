@@ -46,9 +46,9 @@ document
 
     function getNews(newsData) {
       if (newsData.length == 0) {
-        getNewsFoundElement.innerText = "No News Founde For This Catagory";
+        getNewsFoundElement.innerText = "No News Found For This Catagory";
         newsSection.innerHTML = `
-        <h1 class= "fw-bold" >No News found for this section.</h1>`;
+        <h1 class= "fw-bold" >No News found for this catagory.</h1>`;
       } else {
         const newsLength = newsData.length;
         getNewsFoundElement.innerText = `${newsLength} News Found For This Catagory`;
