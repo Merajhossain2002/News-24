@@ -55,7 +55,6 @@ document
       }
 
       newsData.forEach((news) => {
-        console.log(news);
         const newsLength = news.details.length;
 
         const details = (lengthOfNews) => {
@@ -83,6 +82,7 @@ document
         const newsDtails = details(newsLength);
 
         const div = document.createElement("div");
+        div.setAttribute("id", `${news._id}`);
         div.innerHTML = `
         <div style="height: 22rem;" class="card mb-3">
         <div class="row g-0">
@@ -95,8 +95,12 @@ document
           </div>
           <div class="col-md-9">
             <div class="card-body">
-              <h5 class="card-title">${news.title}</h5>
-              <p class="d-none d-lg-block card-text">${newsDtails}</p>
+              <h5 class="card-title"
+              title="Click To Read Full"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal">${news.title}</h5>
+              <p class="d-none d-lg-block card-text" title="Click To Read Full"  data-bs-toggle="modal"
+              data-bs-target="#myModal">${newsDtails}</p>
               <div
                 class="row align-items-center d-flex flex-column flex-md-row"
               >
@@ -158,7 +162,34 @@ document
     }
   });
 
+document.getElementById("news").addEventListener("click", function (event) {
+  const getId =
+    event.target.parentElement.parentElement.parentElement.parentElement
+      .parentElement.id;
+  console.log(getId);
 
+  function fetchNews(getId) {
+    fetch(`https://openapi.programming-hero.com/api/news/${getId}`)
+      .then((response) => response.json())
+      .then((data) => showModal(data.data[0]))
+      .catch((error) => console.log(error));
+  }
+  fetchNews(getId);
 
+  const showModal = (newsdata) => {
+    function getElm(elmId) {
+      const modalTitleElm = document.getElementById(elmId);
+      return modalTitleElm;
+    }
+    const modalTitleElm = getElm("modalTitle");
+    modalTitleElm.innerText = `${newsdata.title}`;
+
+    const modalDetails = getElm("modalBody");
+    modalDetails.innerText = `${newsdata.details}`;
+
+    const modalImg = getElm("modal-img");
+    modalImg.setAttribute("src", `${newsdata.image_url}`);
+  };
+});
 
 fetchCatagory();
