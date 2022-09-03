@@ -1,7 +1,8 @@
 function fetchCatagory() {
   const url = fetch("https://openapi.programming-hero.com/api/news/categories")
     .then((response) => response.json())
-    .then((data) => loadCatagory(data.data.news_category));
+    .then((data) => loadCatagory(data.data.news_category))
+    .catch((error) => console.log(error));
 }
 
 const loadCatagory = (catagoryData) => {
@@ -25,7 +26,8 @@ document
     function fetchNews(getId) {
       fetch(`https://openapi.programming-hero.com/api/news/category/${getId}`)
         .then((response) => response.json())
-        .then((data) => getNews(data.data));
+        .then((data) => getNews(data.data))
+        .catch((error) => console.log(error));
     }
     fetchNews(getId);
 

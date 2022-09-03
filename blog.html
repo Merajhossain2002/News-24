@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News 24</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <!-- Navigation bar Start -->
+      <nav class="navbar navbar-expand-lg pt-3">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><span class="logo-bg-color text-white px-2 py-1 rounded-2"
+              >News</span
+            ><span class="logo-color fw-bolder p-1">24</span></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active fw-semibold logo-color"
+                  aria-current="page"
+                  href="index.html"
+                  >News</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-semibold" href="blog.html">Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <hr class="" />
+      <!-- Navigation bar End -->
+    </header>
+    <main class="container">
+      <!-- blog start -->
+      <h1 class="logo-bg-color w-100 text-white rounded-2 text-center py-2">
+        Blog's
+      </h1>
+      <div class="py-2 mt-3">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button fs-5 fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                what is differance between var, let's and const?
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong
+                  >var variables can be updated and re-declared within its
+                  scope; let variables can be updated but not re-declared; const
+                  variables can neither be updated nor re-declared.</strong
+                >
+                They are all hoisted to the top of their scope. But while var
+                variables are initialized with undefined , let and const
+                variables are not initialized.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed fs-5 fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                what is difference between arrow function and normal function?
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong>
+                  An arrow function expression is a compact alternative to a
+                  traditional function expression, but is limited and can't be
+                  used in all situations.</strong
+                >
+                There are differences between arrow functions and traditional
+                functions, as well as some limitations: Arrow functions don't
+                have their own bindings to this, arguments or super, and should
+                not be used as methods. Arrow functions don't have access to the
+                new.target keyword. Arrow functions aren't suitable for call,
+                apply and bind methods, which generally rely on establishing a
+                scope. Arrow functions cannot be used as constructors. Arrow
+                functions cannot use yield, within its body.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed fs-5 fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Differences between Map , forEach , filter, find?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <h4>1. Foreach</h4>
+                <strong>
+                  Foreach takes a callback function and run that callback
+                  function on each element of array one by one.</strong
+                >
+                Basically forEach works as a traditional for loop looping over
+                the array and providing you array elements to do operations on
+                them.
+                <h4>2. Filter</h4>
+                <strong>
+                  The main difference between forEach and filter is that forEach
+                  just loop over the array and executes the callback but filter
+                  executes the callback and check its return value.</strong
+                >Also take notice filter does not update the existing array it
+                will return a new filtered array every time.
+                <h4>3. Map</h4>
+                <strong>
+                  Map like filter & foreach takes a callback and run it against
+                  every element on the array but whats makes it unique is it
+                  generate a new array based on your existing array.</strong
+                >Like filter, map also returns an array. The provided callback
+                to map modifies the array elements and save them into the new
+                array upon completion that array get returned as the mapped
+                array.
+                <h4>4. Find</h4>
+                <strong>
+                  The find() method returns the value of the first element that
+                  passes a test.</strong
+                >The find() method executes a function for each array element.
+                The find() method returns undefined if no elements are found.
+                The find() method does not execute the function for empty
+                elements.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button
+                class="accordion-button collapsed fs-5 fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                when to use template string?
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong
+                  >Template literals are literals delimited with backtick (`)
+                  characters, allowing for multi-line strings, for string
+                  interpolation with embedded expressions, and for special
+                  constructs called tagged templates.</strong
+                >
+                Template literals are sometimes informally called template
+                strings, because they are used most commonly for string
+                interpolation (to create strings by doing substitution of
+                placeholders). However, a tagged template literal may not result
+                in a string; it can be used with a custom tag function to
+                perform whatever operations you want on the different parts of
+                the template literal.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- blog end -->
+    </main>
+    <script
+      src="https://kit.fontawesome.com/bb8169fdf4.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
